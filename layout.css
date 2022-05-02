@@ -1,42 +1,134 @@
 /*
-  Initial custom properties.
-*/
-
-:root {
-  --accent-color: 0, 0, 0;
-  --background-color: 255, 255, 255;
-  --title-color: 26, 26, 26;
-  --title-font: "Favorit", sans-serif;
-  --title-font-weight: 700;
-  --content-font: var(--title-font);
-}
-
-/*
-  Resetting some default styles.
-*/
-
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dd, dl, ol, ul, figure,
-iframe, audio, video, table {
-  margin: 0;
-  padding: 0;
-}
-
-/*
-  Basic styling.
+  Basic structure
 */
 
 html {
-  background-color: rgb(--background-color);
-  border-top: 8px rgb(--accent-color);
-  font: normal 16px/1.65 var(--content-font);
+  border-top: 8px solid rgb(var(--accent-color));
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 body {
-  color: rgb(--title-color);
-  font-feature-settings: "kern" 1;
-  -moz-font-feature-settings: "kern" 1;
-  -webkit-font-feature-settings: "kern" 1;
-  font-kerning: normal;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "banner menu menu"
+    "content content content"
+    "footer footer footer";
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1080px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+
+#banner {
+  border-bottom: 2px solid rgb(var(--title-color));
+  grid-area: banner;
+  padding-bottom: 1rem;
+}
+
+#banner > a {
+  align-items: flex-end;
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+  #banner a {
+    align-items: center;
+    flex-flow: column nowrap;
+    text-align: center;
+  }
+}
+
+#banner .avatar {
+  display: inline-block;
+}
+
+#banner .avatar.square {
+  border-radius: 5%;
+}
+
+#banner .avatar.circle {
+  border-radius: 50%;
+}
+
+#banner h1 {
+  display: inline;
+  line-height: 1.125;
+  color: rgb(var(--title-color));
+}
+
+#banner .description {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 640px) {
+  #banner .description {
+    text-align: center;
+  }
+}
+
+#menu {
+  align-items: flex-end;
+  border-bottom: 2px solid rgb(var(--title-color));
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.5rem;
+  grid-area: menu;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 640px) {
+  #menu {
+    flex-flow: row nowrap;
+    gap: 0;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-top: 1rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  #menu::before,
+  #menu::after {
+    content: " ";
+    margin: auto;
+    width: 0;
+  }
+}
+
+#menu a {
+  flex: 0 0 auto;
+  color: rgb(var(--title-color));
+}
+
+#menu a:hover,
+#menu a:focus {
+  color: rgb(var(--accent-color));
+}
+
+@media screen and (max-width: 640px) {
+  #menu a {
+    margin-right: 1rem;
+  }
+}
+
+#content {
+  grid-area: content;
+}
+
+#colophon {
+  grid-area: footer;
 }

@@ -1,4 +1,69 @@
 /*
+  Resetting some default styles.
+*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dd,
+dl,
+ol,
+ul,
+figure,
+iframe,
+audio,
+video,
+table {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Basic styling.
+*/
+
+html {
+  background-color: rgb(var(--background-color));
+  font: normal 16px/1.65 "Favorit", sans-serif;
+}
+
+body {
+  color: rgb(--title-color);
+  font-feature-settings: "kern"1;
+  -moz-font-feature-settings: "kern"1;
+  -webkit-font-feature-settings: "kern"1;
+  font-kerning: normal;
+}
+
+/*
+  Links
+*/
+
+a {
+  color: rgb(var(--accent-color));
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+a:visited {
+  text-decoration: underline;
+  text-decoration-style: double;
+}
+
+/*
   Headings
 */
 
