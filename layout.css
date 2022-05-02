@@ -29,6 +29,9 @@ body {
   }
 }
 
+/*
+  Header
+*/
 #banner {
   border-bottom: 2px solid rgb(var(--title-color));
   grid-area: banner;
@@ -78,6 +81,9 @@ body {
   }
 }
 
+/*
+  Menu
+*/
 #menu {
   align-items: flex-end;
   border-bottom: 2px solid rgb(var(--title-color));
@@ -125,9 +131,85 @@ body {
   }
 }
 
+/*
+  Content
+*/
+
 #content {
   grid-area: content;
 }
+
+.post {
+  border-bottom: 2px solid rgb(var(--title-color));
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+.post-meta + h1 {
+  margin-bottom: 3rem;
+}
+
+.post-meta + *:not(h1) {
+  margin-top: 3rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6,
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content dl,
+.post-content blockquote,
+.post-content pre,
+.post-content table {
+  max-width: 640px;
+}
+
+.post-info {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid rgb(var(--title-color));
+  backdrop-filter: blur(10px);
+  border-top: none;
+  padding: 1.5rem 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .post-info {
+    position: static;
+    width: 100%;
+    border-top: 2px solid rgb(var(--title-color));
+  }
+
+}
+
+.post:nth-child(n) .post-info {
+  background-color: rgba(var(--color-post-info-1n), .25);
+}
+
+.post:nth-child(2n) .post-info {
+  background-color: rgba(var(--color-post-info-2n), .25);
+}
+
+.post:nth-child(3n) .post-info {
+  background-color: rgba(var(--color-post-info-3n), .25);
+}
+
+.post:nth-child(4n) .post-info {
+  background-color: rgba(var(--color-post-info-4n), .25);
+}
+
+.post:nth-child(5n) .post-info {
+  background-color: rgba(var(--color-post-info-5n), .25);
+}
+
 
 #colophon {
   grid-area: footer;

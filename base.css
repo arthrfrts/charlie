@@ -33,6 +33,13 @@ table {
 html {
   background-color: rgb(var(--background-color));
   font: normal 16px/1.65 "Favorit", sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
@@ -70,4 +77,24 @@ a:visited {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--title-font);
   font-weight: var(--title-font-weight);
+}
+
+h1 a {
+  color: rgb(var(--title-color));
+}
+
+/*
+  Media
+*/
+
+img, iframe, audio, video {
+  max-width: 100%;
+}
+
+iframe, audio, video {
+  width: 100%;
+}
+
+iframe, video {
+  aspect-ratio: 16 / 9;
 }
