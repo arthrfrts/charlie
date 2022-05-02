@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html
+    lang="{block:English}en-US{/block:English}{block:German}de-DE{/block:German}{block:French}fr-FR{/block:French}{block:Italian}it-IT{/block:Italian}{block:Japanese}ja-JP{/block:Japanese}{block:Turkish}tr-TR{/block:Turkish}{block:Spanish}es-ES{/block:Spanish}{block:Russian}ru-RU{/block:Russian}{block:Polish}pl-PL{/block:Polish}{block:PortuguesePT}pt-PT{/block:PortuguesePT}{block:PortugueseBR}pt-BR{/block:PortugueseBR}{block:Dutch}nl-NL{/block:Dutch}{block:Korean}ko-KR{/block:Korean}{block:ChineseSimplified}zh-CN{/block:ChineseSimplified}{block:ChineseTraditional}zh-TW{/block:ChineseTraditional}{block:ChineseHK}zh-HK{/block:ChineseHK}{block:Indonesian}id-ID{/block:Indonesian}{block:Hindi}hi-IN{/block:Hindi}">
+    <head>
+         {block:Options} 
+        <meta name="if:Show Archive" content="1" />
+        <meta name="if:Show Random Link" content="1" />
+        <meta name="text:Discus Shortname" content="" />
+         {/block:Options} 
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+         {block:PermalinkPage} 
+        <title>{block:PostSummary}{PostSummary} ~ {/block:PostSummary}{Title}</title>
+         {/block:PermalinkPage} 
+         {block:IndexPage} 
+         {block:HomePage} 
+        <title>{Title}</title>
+         {/block:HomePage} 
+         {block:SearchPage} 
+        <title>{lang:SearchResultCount results for SearchQuery}{block:NoSearchResults}{lang:No results
+            found}{/block:NoSearchResults} ~ {Title}</title>
+         {/block:SearchPage} 
+         {block:TagPage} 
+        <title>{lang:Posts tagged Tag} ~ {Title}</title>
+         {/block:TagPage} 
+    
+         {block:DayPage} 
+        <title>{lang:Viewing everything posted on Month DayOfMonth Year} ~ {Title}</title>
+         {/block:DayPage} 
+         {/block:IndexPage} 
+        <meta name="description" content="{MetaDescription}" />
+        <meta name="theme-color" content="{AccentColor}" />
+    
+        <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+        <link rel="shortcut icon" href="{Favicon}" />
+        <link rel="apple-touch-icon" type="image/png" href="{PortraitURL-128}" />
+    
+        <link rel="stylesheet" type="text/css" href="layout.css" />
+        <link rel="stylesheet" type="text/css" href="base.css" />
+    
+        
+        {NewPostStyles}
+        {PostTypographyStyles}
+            
+        <link rel="stylesheet" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+    
+         <style type="text/css" id="blog-options">
+            :root {
+                --accent-color: {RGBAccentColor}; /* {AccentColor} */
+                --background-color: {RGBBackgroundColor}; /* {BackgroundColor} */
+                --title-color: {RGBTitleColor}; /* {TitleColor} */
+                --title-font: {TitleFont};
+                --title-font-weight: {TitleFontWeight};
+            }
+        </style> 
+    
+    
+        <style type="text/css" id="custom-css">
+            {CustomCSS}
+        </style>
+        
+    
+    </head>
+    <body id="blog">
+        <header id="banner">
+            <a class="blog-card" href="{BlogURL}">
+                 {block:ShowAvatar} 
+                <img class="avatar" width="64" height="64" src="{PortraitURL-128}" alt="{Title}" />
+                 {/block:ShowAvatar} 
+    
+                 {block:ShowTitle} 
+                <h1 class="title">{Title}</h1>
+                 {/block:ShowTitle} 
+            </a>
+    
+             {block:ShowDescription} 
+            <p class="description">{Description}</p>
+             {/block:ShowDescription} 
+        </header>
+    
+        <nav id="menu" aria-label="{lang:Navigate}">
+            <a href="/">
+                 {lang:Home} 
+            </a>
+             {block:Pages} 
+             {block:Page} 
+            <a href="{URL}">
+                {Label}
+            </a>
+             {/block:Page} 
+             {/block:Pages} 
+             {block:AskEnabled} 
+            <a href="/ask">
+                {AskLabel}
+            </a>
+             {/block:AskEnabled} 
+             {block:SubmissionsEnabled} 
+            <a href="/submit">
+                {SubmitLabel}
+            </a>
+             {/block:SubmissionsEnabled} 
+             {block:IfShowArchive} 
+            <a href="/archive">
+                 {lang:Archive} 
+            </a>
+             {/block:IfShowArchive} 
+             {block:IfShowRandomLink} 
+            <a href="/random">
+                 {lang:Random} 
+            </a>
+             {/block:IfShowRandomLink} 
+             {block:Likes} 
+            <a href="/likes">
+                 {lang:Likes} 
+            </a>
+             {/block:Likes} 
+        </nav>
+    
+        <main class="content" {block:IndexPage} role="feed" {/block:IndexPage}>
+             {block:SearchPage} 
+             {block:NoSearchResults} 
+            <h3>
+                 {lang:No results found} 
+            </h3>
+             {/block:NoSearchResults} 
+             {/block:SearchPage} 
+             {block:TagPage} 
+            <h3>
+                 {Tag} 
+            </h3>
+             {/block:TagPage} 
+             {block:DayPage} 
+            <h3>
+                 {lang:Viewing everything posted on Month DayOfMonth Year} 
+            </h3>
+             {/block:DayPage} 
+    
+             {block:NoPosts} 
+            <h3>
+                 {lang:This Tumblr hasnt made any posts} 
+            </h3>
+             {/block:NoPosts} 
+    
+             {block:Posts inlineMediaWidth="1020" inlineNestedMediaWidth="1020"} 
+            <article id="{PostID}" class="{PostType} post">
+                 {block:Date} 
+                <header class="post-meta">
+                    <a class="author" href="{PostAuthorURL}" {Target} rel="author"
+                        aria-label="{lang:Posted by PostAuthorName">
+                         {PostAuthorTitle} 
+                    </a>
+    
+                    <a class="permalink" href="{Permalink}" rel="bookmark">
+                        <time
+                            datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">
+                             {TimeAgo} 
+                        </time>
+                    </a>
+                </header>
+                 {/block:Date} 
+    
+                 {block:Text} 
+                 {block:Title} 
+                <h1>
+                    <a href="{Permalink}" rel="bookmark">
+                         {Title} 
+                    </a>
+                </h1>
+                 {/block:Title} 
+                 {/block:Text} 
+    
+                 {block:Photo} 
+                <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
+                    <a href="{LinkURL}">
+                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                    </a>
+                </figure>
+                 {/block:Photo} 
+    
+                 {block:Panorama} 
+                <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
+                     {LinkOpenTag} 
+                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                     {LinkCloseTag} 
+                </figure>
+                 {/block:Panorama} 
+    
+                
+                        {block:Photoset}
+                        {Photoset}
+                        {/block:Photoset}
+                    
+    
+                 {block:Quote} 
+                <blockquote class="npf_quote" data-quote-length="{Length}">
+                    <p>{Quote}</p>
+    
+                     {block:Source} 
+                    <cite>{Source}</cite>
+                     {/block:Source} 
+                </blockquote>
+                 {/block:Quote} 
+    
+                 {block:Link} 
+                <figure class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poser">
+                    <a href="{URL}" {Target}>
+                         {block:Thumbnail} 
+                        <div class="poster" style="background-image: url('{Thumbnail-HighRes}');">
+                             {/block:Thumbnail} 
+                            <h1 class="title">
+                                {Name}
+                            </h1>
+                             {block:Thumbnail} 
+                        </div>
+                         {/block:Thumbnail} 
+                    </a>
+    
+                    <figcaption class="bottom">
+                         {block:Excerpt} 
+                        <p class="description">{Excerpt}</p>
+                         {/block:Excerpt} 
+                         {block:Host} 
+                        <p class="site-name">{Host}</p>
+                         {/block:Host} 
+                    </figcaption>
+                </figure>
+                 {/block:Link} 
+    
+                 {block:Chat} 
+                 {block:Title} 
+                <h1>
+                    <a href="{Permalink}" rel="bookmark">
+                        Título do post (ele pode ser bem longo)
+                         {Title} 
+                    </a>
+                </h1>
+                 {/block:Title} 
+    
+                 {block:Lines} 
+                <p class="npf_chat">
+                     {block:Label} 
+                    <b>{Label}</b>
+                     {/block:Label} 
+                    {Line}
+                </p>
+                 {/block:Lines} 
+                 {/block:Chat} 
+    
+                 {block:Audio} 
+                 {block:AudioEmbed} 
+                {AudioEmbed-640}
+                 {/block:AudioEmbed} 
+                 {/block:Audio} 
+    
+                 {block:Video} 
+                {VideoEmbed-500}
+                 {/block:Video} 
+    
+                 {block:Answer} 
+                <blockquote class="ask-item">
+                    <cite>
+                        <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="{Asker}" />
+                        <span class="user">{lang:Asker asked 2}:</span>
+                    </cite>
+    
+                    {Question}
+                </blockquote>
+    
+                 {block:Answerer} 
+                <blockquote class="ask-item">
+                    <cite>
+                        <img class="avatar" src="{AnswererPortraitURL-64}" role="presentation" alt="{Answerer}" />
+                        <span class="user">{lang:Answered}:</span>
+                    </cite>
+    
+                    {Answer}
+                </blockquote>
+                 {/block:Answerer} 
+                 {/block:Answer} 
+    
+                 {block:Reblogs} 
+                <div class="trail-item">
+                    <a class="trail-blog" {block:HasPermalink}href="{Permalink}" {/block:HasPermalink} {Target}>
+                         {block:HasAvatar} 
+                        <img class="avatar" src="{PortraitURL-64}" alt="{Username}" role="presentation" />
+                         {/block:HasAvatar} 
+    
+                        <b class="username">{Username}</b>
+                    </a>
+    
+                    <div class="trail-content">
+                        {Body}
+                    </div>
+                </div>
+                 {/block:Reblogs} 
+    
+                 {block:NotReblog} 
+                <div class="post-content">
+                     {block:Text} 
+                    {Body}
+                     {/block:Text} 
+    
+                     {block:Photo} 
+                     {block:Caption} 
+                    {Caption}
+                     {/block:Caption} 
+                     {/block:Photo} 
+    
+                     {block:Panorama} 
+                     {block:Caption} 
+                    {Caption}
+                     {/block:Caption} 
+                     {/block:Panorama} 
+    
+                     {block:Photoset} 
+                     {block:Caption} 
+                    {Caption}
+                     {/block:Caption} 
+                     {/block:Photoset} 
+    
+                     {block:Link} 
+                     {block:Description} 
+                    {Description}
+                     {block:Description} 
+                     {/block:Link} 
+    
+                     {block:Audio} 
+                     {block:Caption} 
+                    {Caption}
+                     {/block:Caption} 
+                     {/block:Audio} 
+    
+                     {block:Video} 
+                     {block:Caption} 
+                    {Caption}
+                     {/block:Caption} 
+                     {/block:Video} 
+                </div>
+                 {/block:NotReblog} 
+    
+                 {block:Date} 
+                <footer class="post-info">
+                    <ul>
+                         {block:PinnedPostLabel} 
+                        <li>
+                            {PinnedPostLabel}
+                        </li>
+                         {/block:PinnedPostLabel} 
+                         {block:RebloggedFrom} 
+                        <li>
+                            {lang:Reblogged from ReblogParentTitle 2}
+                        </li>
+                         {/block:RebloggedFrom} 
+    
+    
+                         {block:ContentSource} 
+                        <li>
+                            {lang:Source}:
+                            <a class="source" href="{SourceURL}" {Target}>
+                                {SourceTitle}
+                            </a>
+                        </li>
+                         {/block:ContentSource} 
+    
+                         {block:Actions} 
+                        <li>
+                            <a class="post-action" href="{URL}" {Target}>{Text}</a>
+                        </li>
+                         {/block:Actions} 
+    
+                         {block:NoteCount} 
+                        <li>
+                            <a class="notes-count" href="{Permalink}#notes">
+                                {NoteCountWithLabel}
+                            </a>
+                        </li>
+                         {/block:NoteCount} 
+    
+                         {block:IndexPage} 
+                         {block:IfDisqusShortname} 
+                        <li>
+                            <a href="{Permalink}#disqus_thread">
+                                {lang:View comments}
+                            </a>
+                        </li>
+                         {/block:IfDisqusShortname} 
+                         {/block:IndexPage} 
+    
+                         {block:HasTags} 
+                        <li>
+                            {lang:Tagged with}
+                             {block:Tags} 
+                            <a class="tag" href="{TagURL}" rel="tag">
+                                {Tag}
+                            </a>
+                             {/block:Tags} 
+                        </li>
+                         {/block:HasTags} 
+                    </ul>
+    
+                    <div class="controls">
+                        {ReblogButton size="28"}
+                        {LikeButton size="28"}
+                    </div>
+                </footer>
+                 {/block:Date} 
+            </article>
+             {/block:Posts} 
+    
+             {block:PermalinkPage} 
+             {block:PostNotes} 
+            <aside id="notes">
+                <h3>{NoteCountWithLabel}</h3>
+    
+                {PostNotes-64}
+            </aside>
+             {/block:PostNotes} 
+    
+             {block:IfDisqusShortname} 
+            <section id="disqus_thread">
+                <h3>{lang:Blog comments powered by Disqus}</h3>
+                <div id="disqus_thread"></div>
+                <script src="//{text:Disqus Shortname}.disqus.com/embed.js" defer></script>
+            </section>
+             {/block:IfDisqusShortname} 
+             {/block:PermalinkPage} 
+    
+             {block:Pagination} 
+            <nav id="pagination">
+                 {block:PreviousPage} 
+                <a id="previous-link" href="{PreviousPage}" rel="prev">
+                    {lang:Back}
+                </a>
+                 {/block:PreviousPage} 
+    
+                 {block:NextPage} 
+                <a id="next-link" href="{NextPage}" rel="next">
+                    {lang:Next}
+                </a>
+                 {/block:NextPage} 
+            </nav>
+             {/block:Pagination} 
+    
+             {block:PermalinkPagination} 
+            <nav id="pagination">
+                 {block:PreviousPost} 
+                <a id="previous-link" href="{PreviousPost}" rel="prev">
+                    {lang:Previous post}
+                </a>
+                 {/block:PreviousPost} 
+    
+                 {block:NextPost} 
+                <a id="next-link" href="{NextPost}" rel="next">
+                    {lang:Next post}
+                </a>
+                 {/block:NextPost} 
+            </nav>
+             {/block:PermalinkPagination} 
+    
+             {block:DayPagination} 
+            <nav id="pagination">
+                 {block:PreviousDayPage} 
+                <a id="previous-link" href="{PreviousDayPage}" rel="prev">
+                    {lang:Previous day}
+                </a>
+                 {/block:PreviousDayPage} 
+    
+                 {block:NextDayPage} 
+                <a id="next-link" href="{NextDayPage" rel="next">
+                    {lang:Next day}
+                </a>
+                 {/block:NextDayPage} 
+            </nav>
+             {/block:DayPagination} 
+        </main>
+    
+        <footer id="colophon">
+            <form id="search" class="search-form" action="/search" method="get" role="search">
+                <h4>
+                    <label for="search-query">
+                         {lang:Search} 
+                    </label>
+                </h4>
+    
+                <input id="search-query" class="field" placeholder="{lang:Search keywords}" autocomplete="off"
+                    value="{SearchQuery}" />
+    
+                <button class="submit" type="submit">
+                     {lang:Search} 
+                </button>
+            </form>
+    
+            <section class="about-this-site">
+                <h4>
+                     {lang:About} 
+                </h4>
+    
+                <p>{Description}</p>
+    
+                <ul>
+                    <li>
+                        <a href="/rss" rel="alternate">
+                            {lang:Subscribe via RSS}
+                        </a>
+                    </li>
+                     {block:Twitter} 
+                    <li>
+                        <a href="https://twitter.com/{TwitterUsername}" {Target} rel="me">
+                            {lang:Follow on Twitter}
+                        </a>
+                    </li>
+                     {/block:Twitter} 
+                </ul>
+            </section>
+        </footer>
+    
+         {block:IndexPage} 
+         {block:IfDisqusShortname} 
+        <script id="dsq-count-scr" async await src="//{text:Disqus Shortname}.disqus.com/count.js"></script>
+         {/block:IfDisqusShortname} 
+         {/block:IndexPage} 
+    </body>
+</html>
