@@ -404,11 +404,14 @@
                     {block:HasTags}
                     <li>
                         {lang:Tagged with}
-                        {block:Tags}
-                        <a class="tag" href="{TagURL}" rel="tag">
-                            {Tag}
-                        </a>
-                        {/block:Tags}
+
+                        <span class="tag-list">
+                            {block:Tags}
+                            <a class="tag" href="{TagURL}" rel="tag">
+                                {Tag}
+                            </a>
+                            {/block:Tags}
+                        </span>
                     </li>
                     {/block:HasTags}
                 </ul>

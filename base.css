@@ -50,6 +50,26 @@ body {
   font-kerning: normal;
 }
 
+.post-content p,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6,
+.post-content blockquote,
+.post-content pre,
+.post-content ol,
+.post-content ul,
+.post-content dl,
+.post-content table,
+.post-content iframe,
+.post-content figure,
+.post-content audio,
+.post-content video {
+  margin-bottom: 1rem;
+}
+
 /*
   Links
 */
@@ -77,10 +97,93 @@ a:visited {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--title-font);
   font-weight: var(--title-font-weight);
+  line-height: 1.25;
 }
 
 h1 a {
   color: rgb(var(--title-color));
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+/*
+  Blockquote
+*/
+
+blockquote,
+p.npf_quote,
+.npf_indented {
+  border-left: 3px solid rgba(var(--title-color), .5);
+  font-family: Calluna, Georgia, "Times New Roman", "Liberation Serif", serif;
+  font-size: 1.25rem;
+  padding-left: 1rem;
+}
+
+/*
+  Lists
+*/
+
+ul, ol, dl {
+  margin-left: 1.5rem;
+}
+
+ul {
+  list-style: square;
+}
+
+ul ul {
+  list-style: disc;
+}
+
+ul ul ul {
+  list-style: circle;
+}
+
+ol {
+  list-style: decimal;
+}
+
+ol ol {
+  list-style: lower-alpha;
+}
+
+ol ol ol {
+  list-style: lower-roman;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+ul li,
+ol li {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 /*
@@ -97,4 +200,14 @@ iframe, audio, video {
 
 iframe, video {
   aspect-ratio: 16 / 9;
+}
+
+.post-content img,
+.post-content iframe,
+.post-content audio,
+.post-content video,
+.tmblr-full img {
+  box-shadow: -5px 5px 0 rgba(var(--accent-color), .25);
+  border: 1px solid rgba(var(--title-color), .75);
+  padding: 0.5rem;
 }
