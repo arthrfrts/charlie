@@ -174,12 +174,20 @@ img, iframe, audio, video {
   max-width: 100%;
 }
 
-iframe, audio, video {
+.post-content iframe,
+.post-content audio,
+.post-content video,
+.trail-item iframe,
+.trail-item audio,
+.trail-item video {
   width: 100%;
   height: auto;
 }
 
-iframe, video {
+.post-content iframe,
+.post-content video,
+.trail-item iframe,
+.trail-item video {
   aspect-ratio: 16 / 9;
 }
 
