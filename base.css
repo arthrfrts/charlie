@@ -3,25 +3,10 @@
 */
 
 body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-hr,
-dd,
-dl,
-ol,
-ul,
-figure,
-iframe,
-audio,
-video,
-table {
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+hr, dd, dl, ol, ul,
+figure, iframe, audio, video, table {
   margin: 0;
   padding: 0;
 }
@@ -50,24 +35,19 @@ body {
   font-kerning: normal;
 }
 
-.post-content p,
-.post-content h1,
-.post-content h2,
-.post-content h3,
-.post-content h4,
-.post-content h5,
-.post-content h6,
-.post-content blockquote,
-.post-content pre,
-.post-content ol,
-.post-content ul,
-.post-content dl,
-.post-content table,
-.post-content iframe,
-.post-content figure,
-.post-content audio,
-.post-content video {
+p, ul, ol, dl,
+h1, h2, h3, h4, h5, h6,
+table, blockquote, pre,
+figure, iframe, audio, video {
   margin-bottom: 1rem;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 0;
+  width: 100%;
+  border: 2px dashed var(--title-color);
 }
 
 /*
@@ -196,6 +176,7 @@ img, iframe, audio, video {
 
 iframe, audio, video {
   width: 100%;
+  height: auto;
 }
 
 iframe, video {

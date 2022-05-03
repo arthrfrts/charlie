@@ -6,7 +6,7 @@
     {block:Options}
     <meta name="if:Show Archive" content="1" />
     <meta name="if:Show Random Link" content="1" />
-    <meta name="text:Discus Shortname" content="" />
+    <meta name="text:Disqus Shortname" content="" />
     <meta name="color:1st Post Detail Decoration" content="#00ff00" />
     <meta name="color:2nd Post Detail Decoration" content="#ff00ff" />
     <meta name="color:3rd Post Detail Decoration" content="#00ffff" />
@@ -97,13 +97,13 @@
         <a href="/">
             {lang:Home}
         </a>
+        {block:HasPages}
         {block:Pages}
-        {block:Page}
         <a href="{URL}">
             {Label}
         </a>
-        {/block:Page}
         {/block:Pages}
+        {/block:HasPages}
         {block:AskEnabled}
         <a href="/ask">
             {AskLabel}
@@ -426,14 +426,17 @@
         {/block:Posts}
 
         {block:PermalinkPage}
+        {block:Date}
         {block:PostNotes}
         <aside id="notes">
+            {block:NoteCount}
             <h3>{NoteCountWithLabel}</h3>
-
+            {/block:NoteCount}
+        
             {PostNotes-64}
         </aside>
         {/block:PostNotes}
-
+        
         {block:IfDisqusShortname}
         <section id="disqus_thread">
             <h3>{lang:Blog comments powered by Disqus}</h3>
@@ -441,6 +444,7 @@
             <script src="//{text:Disqus Shortname}.disqus.com/embed.js" defer></script>
         </section>
         {/block:IfDisqusShortname}
+        {/block:Date}
         {/block:PermalinkPage}
 
         {block:Pagination}
@@ -494,14 +498,14 @@
 
     <footer id="colophon">
         <form id="search" class="search-form" action="/search" method="get" role="search">
-            <h4>
+            <h5>
                 <label for="search-query">
                     {lang:Search}
                 </label>
-            </h4>
+            </h5>
 
-            <input id="search-query" class="field" placeholder="{lang:Search keywords}" autocomplete="off"
-                value="{SearchQuery}" />
+            <input type="search" id="search-query" class="field" placeholder="{lang:Search keywords}" autocomplete="off"
+                value="{SearchQuery}" name="q" />
 
             <button class="submit" type="submit">
                 {lang:Search}
@@ -509,9 +513,9 @@
         </form>
 
         <section class="about-this-site">
-            <h4>
+            <h5>
                 {lang:About}
-            </h4>
+            </h5>
 
             <p>{Description}</p>
 
