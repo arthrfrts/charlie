@@ -177,9 +177,11 @@ img, iframe, audio, video {
 .post-content iframe,
 .post-content audio,
 .post-content video,
+.post-content img,
 .trail-item iframe,
 .trail-item audio,
-.trail-item video {
+.trail-item video,
+.trail-item img {
   width: 100%;
   height: auto;
 }
