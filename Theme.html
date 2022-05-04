@@ -158,21 +158,6 @@
 
         {block:Posts inlineMediaWidth="1020" inlineNestedMediaWidth="1020"}
         <article id="{PostID}" class="{PostType} post">
-            {block:Date}
-            <header class="post-meta">
-                <a class="author" href="{PostAuthorURL}" {Target} rel="author"
-                    aria-label="{lang:Posted by PostAuthorName">
-                    {PostAuthorTitle}
-                </a>
-
-                <a class="permalink" href="{Permalink}" rel="bookmark">
-                    <time
-                        datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">
-                        {TimeAgo}
-                    </time>
-                </a>
-            </header>
-            {/block:Date}
 
             {block:Text}
             {block:Title}
@@ -361,6 +346,19 @@
                         {PinnedPostLabel}
                     </li>
                     {/block:PinnedPostLabel}
+                    <li>
+                        <a class="author" href="{PostAuthorURL}" {Target} rel="author" aria-label="{lang:Posted by PostAuthorName}">
+                            {PostAuthorTitle}
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="permalink" href="{Permalink}" rel="bookmark">
+                            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">
+                                {TimeAgo}
+                            </time>
+                        </a>
+                    </li>
                     {block:RebloggedFrom}
                     <li>
                         {lang:Reblogged from ReblogParentTitle 2}
