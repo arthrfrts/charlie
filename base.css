@@ -174,30 +174,25 @@ img, iframe, audio, video {
   max-width: 100%;
 }
 
-.post-content iframe,
-.post-content audio,
-.post-content video,
-.post-content img,
-.trail-item iframe,
-.trail-item audio,
-.trail-item video,
-.trail-item img {
+.post-body iframe,
+.post-body audio,
+.post-body video,
+.post-body img:not([class="avatar"]) {
   width: 100%;
   height: auto;
 }
 
-.post-content iframe,
-.post-content video,
-.trail-item iframe,
-.trail-item video {
+.post-body iframe[src*="youtu"],
+.post-body iframe[src*="vimeo"],
+.post-body iframe[src*="twitch"],
+.post-body video {
   aspect-ratio: 16 / 9;
 }
 
-.post-content img,
-.post-content iframe,
-.post-content audio,
-.post-content video,
-.tmblr-full img {
+.post-body iframe,
+.post-body audio,
+.post-body video,
+.post-body img:not([class="avatar"]) {
   box-shadow: -5px 5px 0 rgba(var(--accent-color), .25);
   border: 1px solid rgba(var(--title-color), .75);
   padding: 0.5rem;

@@ -158,185 +158,186 @@
 
         {block:Posts inlineMediaWidth="1020" inlineNestedMediaWidth="1020"}
         <article id="{PostID}" class="{PostType} post">
-
-            {block:Text}
-            {block:Title}
-            <h1>
-                <a href="{Permalink}" rel="bookmark">
-                    {Title}
-                </a>
-            </h1>
-            {/block:Title}
-            {/block:Text}
-
-            {block:Photo}
-            <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
-                <a href="{LinkURL}">
-                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                </a>
-            </figure>
-            {/block:Photo}
-
-            {block:Panorama}
-            <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
-                {LinkOpenTag}
-                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                {LinkCloseTag}
-            </figure>
-            {/block:Panorama}
-
-
-            {block:Photoset}
-            {Photoset}
-            {/block:Photoset}
-
-
-            {block:Quote}
-            <blockquote class="npf_quote" data-quote-length="{Length}">
-                <p>{Quote}</p>
-
-                {block:Source}
-                <cite>{Source}</cite>
-                {/block:Source}
-            </blockquote>
-            {/block:Quote}
-
-            {block:Link}
-            <figure class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poser">
-                <a href="{URL}" {Target}>
-                    {block:Thumbnail}
-                    <div class="poster" style="background-image: url('{Thumbnail-HighRes}');">
-                        {/block:Thumbnail}
-                        <h1 class="title">
-                            {Name}
-                        </h1>
-                        {block:Thumbnail}
-                    </div>
-                    {/block:Thumbnail}
-                </a>
-
-                <figcaption class="bottom">
-                    {block:Excerpt}
-                    <p class="description">{Excerpt}</p>
-                    {/block:Excerpt}
-                    {block:Host}
-                    <p class="site-name">{Host}</p>
-                    {/block:Host}
-                </figcaption>
-            </figure>
-            {/block:Link}
-
-            {block:Chat}
-            {block:Title}
-            <h1>
-                <a href="{Permalink}" rel="bookmark">
-                    Título do post (ele pode ser bem longo)
-                    {Title}
-                </a>
-            </h1>
-            {/block:Title}
-
-            {block:Lines}
-            <p class="npf_chat">
-                {block:Label}
-                <b>{Label}</b>
-                {/block:Label}
-                {Line}
-            </p>
-            {/block:Lines}
-            {/block:Chat}
-
-            {block:Audio}
-            {block:AudioEmbed}
-            {AudioEmbed-640}
-            {/block:AudioEmbed}
-            {/block:Audio}
-
-            {block:Video}
-            {VideoEmbed-500}
-            {/block:Video}
-
-            {block:Answer}
-            <blockquote class="ask-item">
-                <cite>
-                    <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="{Asker}" />
-                    <span class="user">{lang:Asker asked 2}:</span>
-                </cite>
-
-                {Question}
-            </blockquote>
-
-            {block:Answerer}
-            <blockquote class="ask-item">
-                <cite>
-                    <img class="avatar" src="{AnswererPortraitURL-64}" role="presentation" alt="{Answerer}" />
-                    <span class="user">{lang:Answered}:</span>
-                </cite>
-
-                {Answer}
-            </blockquote>
-            {/block:Answerer}
-            {/block:Answer}
-
-            {block:Reblogs}
-            <div class="trail-item">
-                <a class="trail-blog" {block:HasPermalink}href="{Permalink}" {/block:HasPermalink} {Target}>
-                    {block:HasAvatar}
-                    <img class="avatar" src="{PortraitURL-64}" alt="{Username}" role="presentation" />
-                    {/block:HasAvatar}
-
-                    <b class="username">{Username}</b>
-                </a>
-
-                <div class="trail-content">
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-
-            {block:NotReblog}
-            <div class="post-content">
+            <div class="post-body">
                 {block:Text}
-                {Body}
+                {block:Title}
+                <h1>
+                    <a href="{Permalink}" rel="bookmark">
+                        {Title}
+                    </a>
+                </h1>
+                {/block:Title}
                 {/block:Text}
-
+                
                 {block:Photo}
-                {block:Caption}
-                {Caption}
-                {/block:Caption}
+                <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
+                    <a href="{LinkURL}">
+                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                    </a>
+                </figure>
                 {/block:Photo}
-
+                
                 {block:Panorama}
-                {block:Caption}
-                {Caption}
-                {/block:Caption}
+                <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
+                    {LinkOpenTag}
+                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                    {LinkCloseTag}
+                </figure>
                 {/block:Panorama}
-
+                
+                
                 {block:Photoset}
-                {block:Caption}
-                {Caption}
-                {/block:Caption}
+                {Photoset}
                 {/block:Photoset}
-
+                
+                
+                {block:Quote}
+                <blockquote class="npf_quote" data-quote-length="{Length}">
+                    <p>{Quote}</p>
+                
+                    {block:Source}
+                    <cite>{Source}</cite>
+                    {/block:Source}
+                </blockquote>
+                {/block:Quote}
+                
                 {block:Link}
-                {block:Description}
-                {Description}
-                {block:Description}
+                <figure class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
+                    <a href="{URL}" {Target}>
+                        {block:Thumbnail}
+                        <div class="poster" style="background-image: url('{Thumbnail-HighRes}');">
+                            {/block:Thumbnail}
+                            <h1 class="title">
+                                {Name}
+                            </h1>
+                            {block:Thumbnail}
+                        </div>
+                        {/block:Thumbnail}
+                    </a>
+                
+                    <figcaption class="bottom">
+                        {block:Excerpt}
+                        <p class="description">{Excerpt}</p>
+                        {/block:Excerpt}
+                        {block:Host}
+                        <p class="site-name">{Host}</p>
+                        {/block:Host}
+                    </figcaption>
+                </figure>
                 {/block:Link}
-
+                
+                {block:Chat}
+                {block:Title}
+                <h1>
+                    <a href="{Permalink}" rel="bookmark">
+                        Título do post (ele pode ser bem longo)
+                        {Title}
+                    </a>
+                </h1>
+                {/block:Title}
+                
+                {block:Lines}
+                <p class="npf_chat">
+                    {block:Label}
+                    <b>{Label}</b>
+                    {/block:Label}
+                    {Line}
+                </p>
+                {/block:Lines}
+                {/block:Chat}
+                
                 {block:Audio}
-                {block:Caption}
-                {Caption}
-                {/block:Caption}
+                {block:AudioEmbed}
+                {AudioEmbed-640}
+                {/block:AudioEmbed}
                 {/block:Audio}
-
+                
                 {block:Video}
-                {block:Caption}
-                {Caption}
-                {/block:Caption}
+                {VideoEmbed-500}
                 {/block:Video}
+                
+                {block:Answer}
+                <blockquote class="ask-item">
+                    <cite>
+                        <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="{Asker}" />
+                        <span class="user">{lang:Asker asked 2}:</span>
+                    </cite>
+                
+                    {Question}
+                </blockquote>
+                
+                {block:Answerer}
+                <blockquote class="ask-item">
+                    <cite>
+                        <img class="avatar" src="{AnswererPortraitURL-64}" role="presentation" alt="{Answerer}" />
+                        <span class="user">{lang:Answered}:</span>
+                    </cite>
+                
+                    {Answer}
+                </blockquote>
+                {/block:Answerer}
+                {/block:Answer}
+                
+                {block:Reblogs}
+                <div class="trail-item">
+                    <a class="trail-blog" {block:HasPermalink}href="{Permalink}" {/block:HasPermalink} {Target}>
+                        {block:HasAvatar}
+                        <img class="avatar" src="{PortraitURL-64}" alt="{Username}" role="presentation" />
+                        {/block:HasAvatar}
+                
+                        <b class="username">{Username}</b>
+                    </a>
+                
+                    <div class="trail-content">
+                        {Body}
+                    </div>
+                </div>
+                {/block:Reblogs}
+                
+                {block:NotReblog}
+                <div class="post-content">
+                    {block:Text}
+                    {Body}
+                    {/block:Text}
+                
+                    {block:Photo}
+                    {block:Caption}
+                    {Caption}
+                    {/block:Caption}
+                    {/block:Photo}
+                
+                    {block:Panorama}
+                    {block:Caption}
+                    {Caption}
+                    {/block:Caption}
+                    {/block:Panorama}
+                
+                    {block:Photoset}
+                    {block:Caption}
+                    {Caption}
+                    {/block:Caption}
+                    {/block:Photoset}
+                
+                    {block:Link}
+                    {block:Description}
+                    {Description}
+                    {block:Description}
+                    {/block:Link}
+                
+                    {block:Audio}
+                    {block:Caption}
+                    {Caption}
+                    {/block:Caption}
+                    {/block:Audio}
+                
+                    {block:Video}
+                    {block:Caption}
+                    {Caption}
+                    {/block:Caption}
+                    {/block:Video}
+                </div>
+                {/block:NotReblog}
             </div>
-            {/block:NotReblog}
 
             {block:Date}
             <footer class="post-info">

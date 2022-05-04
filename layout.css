@@ -183,8 +183,8 @@ body {
   margin-top: 3rem;
 }
 
-.post-content > *:not(figure):not(iframe):not(audio):not(video),
-.trail-content > *:not(figure):not(iframe):not(audio):not(video),
+.post-content > *:not(figure):not(iframe):not(audio):not(video):not(.npf_row),
+.trail-content > *:not(figure):not(iframe):not(audio):not(video):not(.npf_row),
 .post h1,
 .post h2,
 .post h3,
@@ -192,6 +192,33 @@ body {
 .post h5,
 .post h6 {
   max-width: 640px;
+}
+
+/*
+  NPF Links
+*/
+.npf-link-block {
+  align-items: flex-start;
+  border: 1px solid rgba(var(--title-color), .25);
+  border-radius: 0;
+  box-shadow: -5px 5px rgba(var(--accent-color), .25);
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 640px;
+  padding: .5rem;
+}
+
+.npf-link-block .poster {
+  justify-content: flex-start;
+}
+
+.npf-link-block .title {
+  font-size: 1.75rem;
+
+}
+
+.npf-link-block.no-poster .title {
+  color: var(--title-color);
 }
 
 /* Reblogs */
