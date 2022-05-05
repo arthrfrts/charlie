@@ -199,13 +199,13 @@ body {
 */
 .npf-link-block {
   align-items: flex-start;
-  border: 1px solid rgba(var(--title-color), .25);
+  border: 1px solid rgba(var(--title-color), 0.25);
   border-radius: 0;
-  box-shadow: -5px 5px rgba(var(--accent-color), .25);
+  box-shadow: -5px 5px rgba(var(--accent-color), 0.25);
   display: flex;
   flex-flow: column nowrap;
   max-width: 640px;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .npf-link-block .poster {
@@ -214,16 +214,28 @@ body {
 
 .npf-link-block .title {
   font-size: 1.75rem;
-
 }
 
 .npf-link-block.no-poster .title {
   color: var(--title-color);
 }
 
+/*
+  NPF Galleries
+*/
+.post-body div.npf_row,
+.post-body .post-content div.npf_row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.post-body .npf_row .npf_col {
+  aspect-ratio: 4 / 3;
+}
+
 /* Reblogs */
 .trail-item {
-  border-top: 2px dotted rgba(var(--title-color), .25);
+  border-top: 2px dotted rgba(var(--title-color), 0.25);
   margin-bottom: 1rem;
   margin-top: 1rem;
   padding-top: 1rem;
@@ -253,17 +265,17 @@ body {
 }
 
 .notes .note {
-  padding: .25rem 0;
+  padding: 0.25rem 0;
 }
 
 .notes li:not(:last-child) {
-  border-bottom: 2px dashed rgba(var(--title-color), .25);
+  border-bottom: 2px dashed rgba(var(--title-color), 0.25);
 }
 
 .notes li .avatar_frame {
   display: inline-block;
   vertical-align: middle;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .notes li .avatar {
@@ -302,23 +314,23 @@ body {
 }
 
 .post:nth-child(n) .post-info {
-  background-color: rgba(var(--color-post-info-1n), .25);
+  background-color: rgba(var(--color-post-info-1n), 0.25);
 }
 
 .post:nth-child(2n) .post-info {
-  background-color: rgba(var(--color-post-info-2n), .25);
+  background-color: rgba(var(--color-post-info-2n), 0.25);
 }
 
 .post:nth-child(3n) .post-info {
-  background-color: rgba(var(--color-post-info-3n), .25);
+  background-color: rgba(var(--color-post-info-3n), 0.25);
 }
 
 .post:nth-child(4n) .post-info {
-  background-color: rgba(var(--color-post-info-4n), .25);
+  background-color: rgba(var(--color-post-info-4n), 0.25);
 }
 
 .post:nth-child(5n) .post-info {
-  background-color: rgba(var(--color-post-info-5n), .25);
+  background-color: rgba(var(--color-post-info-5n), 0.25);
 }
 
 .post-info ul {
@@ -339,11 +351,11 @@ body {
 }
 
 .tag-list a:not(:last-child)::after {
-  color: rgba(var(--title-color), .75);
+  color: rgba(var(--title-color), 0.75);
   content: "/";
   display: inline-block;
-  margin-left: .25rem;
-  margin-right: .25rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .controls .reblog_button,
@@ -435,6 +447,6 @@ body {
   border-radius: 0;
   color: rgb(var(--background-color));
   font: inherit;
-  padding-left: .3rem;
-  padding-right: .3rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
 }

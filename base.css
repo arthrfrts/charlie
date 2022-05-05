@@ -3,10 +3,25 @@
 */
 
 body,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-hr, dd, dl, ol, ul,
-figure, iframe, audio, video, table {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dd,
+dl,
+ol,
+ul,
+figure,
+iframe,
+audio,
+video,
+table {
   margin: 0;
   padding: 0;
 }
@@ -35,10 +50,23 @@ body {
   font-kerning: normal;
 }
 
-p, ul, ol, dl,
-h1, h2, h3, h4, h5, h6,
-table, blockquote, pre,
-figure, iframe, audio, video {
+p,
+ul,
+ol,
+dl,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+table,
+blockquote,
+pre,
+figure,
+iframe,
+audio,
+video {
   margin-bottom: 1rem;
 }
 
@@ -74,7 +102,12 @@ a:visited {
   Headings
 */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--title-font);
   font-weight: var(--title-font-weight);
   line-height: 1.25;
@@ -115,7 +148,7 @@ h6 {
 blockquote,
 p.npf_quote,
 .npf_indented {
-  border-left: 3px solid rgba(var(--title-color), .5);
+  border-left: 3px solid rgba(var(--title-color), 0.5);
   font-family: Calluna, Georgia, "Times New Roman", "Liberation Serif", serif;
   font-size: 1.25rem;
   padding-left: 1rem;
@@ -125,7 +158,9 @@ p.npf_quote,
   Lists
 */
 
-ul, ol, dl {
+ul,
+ol,
+dl {
   margin-left: 1.5rem;
 }
 
@@ -162,15 +197,18 @@ ol ul {
 
 ul li,
 ol li {
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 /*
   Media
 */
 
-img, iframe, audio, video {
+img,
+iframe,
+audio,
+video {
   max-width: 100%;
 }
 
@@ -193,7 +231,7 @@ img, iframe, audio, video {
 .post-body audio,
 .post-body video,
 .post-body img:not([class="avatar"]) {
-  box-shadow: -5px 5px 0 rgba(var(--accent-color), .25);
-  border: 1px solid rgba(var(--title-color), .75);
+  box-shadow: -5px 5px 0 rgba(var(--accent-color), 0.25);
+  border: 1px solid rgba(var(--title-color), 0.75);
   padding: 0.5rem;
 }
