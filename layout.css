@@ -235,11 +235,14 @@ body {
 
 /* Reblogs */
 .trail-item {
-  border-top: 2px dotted rgba(var(--title-color), 0.25);
   margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.trail-item:not(:first-child) {
+  border-top: 2px dotted rgba(var(--title-color), 0.25);
   margin-top: 1rem;
   padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .trail-blog {
@@ -268,6 +271,11 @@ body {
   padding: 0.25rem 0;
 }
 
+.notes .note blockquote {
+  font-size: 1em;
+  font-style: italic;
+}
+
 .notes li:not(:last-child) {
   border-bottom: 2px dashed rgba(var(--title-color), 0.25);
 }
@@ -291,6 +299,7 @@ body {
 
 /* Post Info */
 .post-info {
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 2px solid rgb(var(--title-color));
   border-top: none;
