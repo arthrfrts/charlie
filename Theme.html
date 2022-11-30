@@ -57,10 +57,8 @@
         }
     </style>
 
-    <style type="text/css">
-        {BaseCSS}
-        {LayoutCSS}
-    </style>
+    <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/i99f53r/Fszrbevlq/base.css" />
+    <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/i99f53r/r2Jrbevlu/layout.css" />
 
 
     {NewPostStyles}
@@ -72,6 +70,12 @@
     <style type="text/css" id="custom-css">
         {CustomCSS}
     </style>
+
+    <meta property="og:site_name" content="{Title}" />
+    <meta property="og:title" content="{block:PermalinkPage}{block:PostSummary}{PostSummary}{/block:PostSummary}{/block:PermalinkPage}{block:IndexPage}{Title}{/block:IndexPage}" />
+        <meta property="og:description" content="{MetaDescription}" />
+        <meta property="og:url" content="{block:PermalinkPage}{Permalink}{/block:PermalinkPage}{block:IndexPage}{BlogURL}{/block:IndexPage}" />
+        <meta property="og:type" content="{block:PermalinkPage}article{/block:PermalinkPage}{block:IndexPage}website{/block:IndexPage}" />
 
 
 </head>
@@ -168,7 +172,7 @@
                 </h1>
                 {/block:Title}
                 {/block:Text}
-                
+
                 {block:Photo}
                 <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
                     <a href="{LinkURL}">
@@ -176,7 +180,7 @@
                     </a>
                 </figure>
                 {/block:Photo}
-                
+
                 {block:Panorama}
                 <figure {block:HighRes}class="tmblr-full" {/block:HighRes}>
                     {LinkOpenTag}
@@ -184,23 +188,23 @@
                     {LinkCloseTag}
                 </figure>
                 {/block:Panorama}
-                
-                
+
+
                 {block:Photoset}
                 {Photoset}
                 {/block:Photoset}
-                
-                
+
+
                 {block:Quote}
                 <blockquote class="npf_quote" data-quote-length="{Length}">
                     <p>{Quote}</p>
-                
+
                     {block:Source}
                     <cite>{Source}</cite>
                     {/block:Source}
                 </blockquote>
                 {/block:Quote}
-                
+
                 {block:Link}
                 <figure class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
                     <a href="{URL}" {Target}>
@@ -214,7 +218,7 @@
                         </div>
                         {/block:Thumbnail}
                     </a>
-                
+
                     <figcaption class="bottom">
                         {block:Excerpt}
                         <p class="description">{Excerpt}</p>
@@ -225,7 +229,7 @@
                     </figcaption>
                 </figure>
                 {/block:Link}
-                
+
                 {block:Chat}
                 {block:Title}
                 <h1>
@@ -235,7 +239,7 @@
                     </a>
                 </h1>
                 {/block:Title}
-                
+
                 {block:Lines}
                 <p class="npf_chat">
                     {block:Label}
@@ -245,91 +249,91 @@
                 </p>
                 {/block:Lines}
                 {/block:Chat}
-                
+
                 {block:Audio}
                 {block:AudioEmbed}
                 {AudioEmbed-640}
                 {/block:AudioEmbed}
                 {/block:Audio}
-                
+
                 {block:Video}
                 {VideoEmbed-500}
                 {/block:Video}
-                
+
                 {block:Answer}
                 <blockquote class="ask-item">
                     <cite>
                         <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="{Asker}" />
                         <span class="user">{lang:Asker asked 2}:</span>
                     </cite>
-                
+
                     {Question}
                 </blockquote>
-                
+
                 {block:Answerer}
                 <blockquote class="ask-item">
                     <cite>
                         <img class="avatar" src="{AnswererPortraitURL-64}" role="presentation" alt="{Answerer}" />
                         <span class="user">{lang:Answered}:</span>
                     </cite>
-                
+
                     {Answer}
                 </blockquote>
                 {/block:Answerer}
                 {/block:Answer}
-                
+
                 {block:Reblogs}
                 <div class="trail-item">
                     <a class="trail-blog" {block:HasPermalink}href="{Permalink}" {/block:HasPermalink} {Target}>
                         {block:HasAvatar}
                         <img class="avatar" src="{PortraitURL-64}" alt="{Username}" role="presentation" />
                         {/block:HasAvatar}
-                
+
                         <b class="username">{Username}</b>
                     </a>
-                
+
                     <div class="trail-content">
                         {Body}
                     </div>
                 </div>
                 {/block:Reblogs}
-                
+
                 {block:NotReblog}
                 <div class="post-content">
                     {block:Text}
                     {Body}
                     {/block:Text}
-                
+
                     {block:Photo}
                     {block:Caption}
                     {Caption}
                     {/block:Caption}
                     {/block:Photo}
-                
+
                     {block:Panorama}
                     {block:Caption}
                     {Caption}
                     {/block:Caption}
                     {/block:Panorama}
-                
+
                     {block:Photoset}
                     {block:Caption}
                     {Caption}
                     {/block:Caption}
                     {/block:Photoset}
-                
+
                     {block:Link}
                     {block:Description}
                     {Description}
                     {block:Description}
                     {/block:Link}
-                
+
                     {block:Audio}
                     {block:Caption}
                     {Caption}
                     {/block:Caption}
                     {/block:Audio}
-                
+
                     {block:Video}
                     {block:Caption}
                     {Caption}
@@ -352,7 +356,7 @@
                             {PostAuthorTitle}
                         </a>
                     </li>
-                    
+
                     <li>
                         <a class="permalink" href="{Permalink}" rel="bookmark">
                             <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">
@@ -422,7 +426,6 @@
             </footer>
             {/block:Date}
         </article>
-        {/block:Posts}
 
         {block:PermalinkPage}
         {block:Date}
@@ -431,13 +434,13 @@
             {block:NoteCount}
             <h3>{NoteCountWithLabel}</h3>
             {/block:NoteCount}
-        
+
             {PostNotes-64}
         </aside>
         {/block:PostNotes}
-        
+
         {block:IfDisqusShortname}
-        <section id="disqus_thread">
+        <section class="disqus_thread">
             <h3>{lang:Blog comments powered by Disqus}</h3>
             <div id="disqus_thread"></div>
             <script src="//{text:Disqus Shortname}.disqus.com/embed.js" defer></script>
@@ -445,6 +448,7 @@
         {/block:IfDisqusShortname}
         {/block:Date}
         {/block:PermalinkPage}
+        {/block:Posts}
 
         {block:Pagination}
         <nav id="pagination">
@@ -541,5 +545,4 @@
     {/block:IfDisqusShortname}
     {/block:IndexPage}
 </body>
-
 </html>
