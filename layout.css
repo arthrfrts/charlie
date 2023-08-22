@@ -183,8 +183,8 @@ body {
   margin-top: 3rem;
 }
 
-.post-content>*:not(figure):not(iframe):not(audio):not(video):not(.npf_row),
-.trail-content>*:not(figure):not(iframe):not(audio):not(video):not(.npf_row),
+.post-content>*,
+.trail-content>*,
 .post h1,
 .post h2,
 .post h3,
@@ -194,9 +194,17 @@ body {
   max-width: 640px;
 }
 
-.full-width-media .post-content>*,
-.full-width-media .trail-content>* {
-  max-width: 640px;
+.full-width-media .post-content>figure,
+.full-width-media .post-content>iframe,
+.full-width-media .post-content>audio,
+.full-width-media .post-content>video,
+.full-width-media .post-content>.npf_row,
+.full-width-media .trail-content>figure,
+.full-width-media .trail-content>iframe,
+.full-width-media .trail-content>audio,
+.full-width-media .trail-content>video,
+.full-width-media .trail-content>.npf_row {
+  max-width: 100%;
 }
 
 /*
