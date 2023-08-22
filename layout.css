@@ -194,6 +194,11 @@ body {
   max-width: 640px;
 }
 
+.full-width-media .post-content>*,
+.full-width-media .trail-content>* {
+  max-width: 640px;
+}
+
 /*
   NPF Links
 */
