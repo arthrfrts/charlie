@@ -14,29 +14,31 @@
             <meta name="color:4th Post Detail Decoration" content="#ffff00" />
             <meta name="color:5th Post Detail Decoration" content="#ff0000" />
         {/block:Options}
-        
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            {block:PermalinkPage}
+                {block:PostSummary}
+                    {PostSummary} ~
+                {/block:PostSummary}
+            {/block:PermalinkPage}
 
-        {block:PermalinkPage}
-            <title>{block:PostSummary}{PostSummary} ~ {/block:PostSummary}{Title}</title>
-        {/block:PermalinkPage}
-        
-        {block:IndexPage}
-            {block:HomePage}
-                <title>{Title}</title>
-            {/block:HomePage}
             {block:SearchPage}
-                <title>{lang:SearchResultCount results for SearchQuery}{block:NoSearchResults}{lang:No results found}{/block:NoSearchResults} ~ {Title}</title>
+                {lang:SearchResultCount results for SearchQuery}{block:NoSearchResults}{lang:No results found}{/block:NoSearchResults} ~
             {/block:SearchPage}
+
             {block:TagPage}
-                <title>{lang:Posts tagged Tag} ~ {Title}</title>
+                {lang:Posts tagged Tag} ~
             {/block:TagPage}
+
             {block:DayPage}
-                <title>{lang:Viewing everything posted on Month DayOfMonth Year} ~ {Title}</title>
+                {lang:Viewing everything posted on Month DayOfMonth Year} ~
             {/block:DayPage}
-        {/block:IndexPage}
-        
+
+            {Title}
+        </title>
+
         <meta name="description" content="{MetaDescription}" />
         <meta name="theme-color" content="{AccentColor}" />
 
@@ -44,31 +46,30 @@
         <link rel="shortcut icon" href="{Favicon}" />
         <link rel="apple-touch-icon" type="image/png" href="{PortraitURL-128}" />
 
-        <style type="text/css" id="blog-options">
+        <style id="blog-options">
             :root {
                 --accent-color: {RGBAccentColor}; /* {AccentColor} */
                 --background-color: {RGBBackgroundColor}; /* {BackgroundColor} */
                 --title-color: {RGBTitleColor}; /* {TitleColor} */
                 --title-font: {TitleFont};
                 --title-font-weight: {TitleFontWeight};
-                --color-post-info-1n: {RGBcolor:1st Post Detail Decoration};
-                --color-post-info-2n: {RGBcolor:2nd Post Detail Decoration};
-                --color-post-info-3n: {RGBcolor:3rd Post Detail Decoration};
-                --color-post-info-4n: {RGBcolor:4th Post Detail Decoration};
-                --color-post-info-5n: {RGBcolor:5th Post Detail Decoration};
+                --color-post-info-1n: {RGBcolor:1st Post Detail Decoration}; /* {color:1st Post Detail Decoration} */
+                --color-post-info-2n: {RGBcolor:2nd Post Detail Decoration}; /* {color:2nd Post Detail Decoration} */
+                --color-post-info-3n: {RGBcolor:3rd Post Detail Decoration}; /* {color:3rd Post Detail Decoration} */
+                --color-post-info-4n: {RGBcolor:4th Post Detail Decoration}; /* {color:4th Post Detail Decoration} */
+                --color-post-info-5n: {RGBcolor:5th Post Detail Decoration}; /* {color:5th Post Detail Decoration} */
             }
         </style>
-        
+
         {NewPostStyles}
         {PostTypographyStyles}
 
-        <link rel="stylesheet" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
-
-        <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/i99f53r/VZVrzrrgp/base.css" />
-        <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/i99f53r/iqsrzrrga/layout.css" />
+        <link rel="stylesheet" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1" />
+        <link rel="stylesheet" href="https://static.tumblr.com/i99f53r/VZVrzrrgp/base.css" />
+        <link rel="stylesheet" href="https://static.tumblr.com/i99f53r/iqsrzrrga/layout.css" />
 
         {block:IfEnableFullWidthMedia}
-            <style type="text/css" id="full-width-media">
+            <style id="full-width-media">
                 .post-content > figure,
                 .post-content > iframe,
                 .post-content > audio,
@@ -85,19 +86,21 @@
         {/block:IfEnableFullWidthMedia}
 
 
-        <style type="text/css" id="custom-css">
+        <style id="custom-css">
             {CustomCSS}
         </style>
 
         <meta property="og:site_name" content="{Title}" />
         <meta property="og:title" content="{block:PermalinkPage}{block:PostSummary}{PostSummary}{/block:PostSummary}{/block:PermalinkPage}{block:IndexPage}{Title}{/block:IndexPage}" />
         <meta property="og:description" content="{MetaDescription}" />
-        <meta property="og:url" content="{block:PermalinkPage}{Permalink}{/block:PermalinkPage}{block:IndexPage}{BlogURL}{/block:IndexPage}" />
+        {block:PermalinkPage}
+            <meta property="og:url" content="{Permalink}" />
+        {/block:PermalinkPage}
         <meta property="og:type" content="{block:PermalinkPage}article{/block:PermalinkPage}{block:IndexPage}website{/block:IndexPage}" />
     </head>
     <body id="blog">
         <header id="banner">
-            <a class="blog-card" href="{BlogURL}">
+            <a class="blog-card" href="{BlogURL}" {Target}>
                 {block:ShowAvatar}
                     <img class="avatar {AvatarShape}" width="64" height="64" src="{PortraitURL-128}" alt="{Title}" />
                 {/block:ShowAvatar}
@@ -113,7 +116,7 @@
         </header>
 
         <nav id="menu" aria-label="{lang:Navigate}">
-            <a href="/">
+            <a href="{BlogURL}">
                 {lang:Home}
             </a>
             {block:HasPages}
@@ -123,31 +126,31 @@
                     </a>
                 {/block:Pages}
             {/block:HasPages}
-        
+
             {block:AskEnabled}
                 <a href="/ask" {Target}>
                     {AskLabel}
                 </a>
             {/block:AskEnabled}
-            
+
             {block:SubmissionsEnabled}
                 <a href="/submit" {Target}>
                     {SubmitLabel}
                 </a>
             {/block:SubmissionsEnabled}
-            
+
             {block:IfShowArchive}
                 <a href="/archive" {Target}>
                     {lang:Archive}
                 </a>
             {/block:IfShowArchive}
-        
+
             {block:IfShowRandomLink}
                 <a href="/random" {Target}>
                     {lang:Random}
                 </a>
             {/block:IfShowRandomLink}
-            
+
             {block:Likes}
                 <a href="/likes" {Target}>
                     {lang:Likes}
@@ -161,11 +164,11 @@
                     <h3>{lang:No results found}</h3>
                 {/block:NoSearchResults}
             {/block:SearchPage}
-            
+
             {block:TagPage}
                 <h3>{Tag}</h3>
             {/block:TagPage}
-            
+
             {block:DayPage}
                 <h3>{lang:Viewing everything posted on Month DayOfMonth Year}</h3>
             {/block:DayPage}
@@ -188,7 +191,7 @@
                         {/block:Text}
 
                         {block:Photo}
-                            <figure {block:HighRes}class="tmblr-full"{/block:HighRes}>
+                            <figure {block:HighRes} class="tmblr-full" {/block:HighRes}>
                                 <a href="{LinkURL}" {Target}>
                                     <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
                                 </a>
@@ -196,45 +199,43 @@
                         {/block:Photo}
 
                         {block:Panorama}
-                            <figure {block:HighRes}class="tmblr-full"{/block:HighRes}>
+                            <figure {block:HighRes} class="tmblr-full" {/block:HighRes}>
                                 {LinkOpenTag}
                                     <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
                                 {LinkCloseTag}
                             </figure>
                         {/block:Panorama}
-    
-    
+
                         {block:Photoset}
                             {Photoset}
                         {/block:Photoset}
-    
-    
+
                         {block:Quote}
                             <blockquote class="npf_quote" data-quote-length="{Length}">
                                 <p>{Quote}</p>
-                                
+
                                 {block:Source}
                                     <cite>{Source}</cite>
                                 {/block:Source}
                             </blockquote>
                         {/block:Quote}
-    
+
                         {block:Link}
                             <figure class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
                                 <a href="{URL}" {Target}>
                                     {block:Thumbnail}
                                         <div class="poster" style="background-image: url('{Thumbnail-HighRes}');">
                                     {/block:Thumbnail}
-                                    
+
                                     <h1 class="title">
                                         {Name}
                                     </h1>
-                                    
+
                                     {block:Thumbnail}
                                         </div>
                                     {/block:Thumbnail}
                                 </a>
-    
+
                                 <figcaption class="bottom">
                                     {block:Excerpt}
                                         <p class="description">{Excerpt}</p>
@@ -245,7 +246,7 @@
                                 </figcaption>
                             </figure>
                         {/block:Link}
-    
+
                         {block:Chat}
                             {block:Title}
                                 <h1>
@@ -254,7 +255,7 @@
                                     </a>
                                 </h1>
                             {/block:Title}
-    
+
                             {block:Lines}
                                 <p class="npf_chat">
                                     {block:Label}
@@ -264,91 +265,91 @@
                                 </p>
                             {/block:Lines}
                         {/block:Chat}
-    
+
                         {block:Audio}
                             {block:AudioEmbed}
                                 {AudioEmbed-640}
                             {/block:AudioEmbed}
                         {/block:Audio}
-    
+
                         {block:Video}
-                            {VideoEmbed-500}
+                            {VideoEmbed-700}
                         {/block:Video}
-    
+
                         {block:Answer}
                             <blockquote class="ask-item">
                                 <cite>
                                     <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="{Asker}" />
                                     <span class="user">{lang:Asker asked 2}:</span>
                                 </cite>
-    
+
                                 {Question}
                             </blockquote>
-                            
+
                             {block:Answerer}
                                 <blockquote class="ask-item">
                                     <cite>
                                         <img class="avatar" src="{AnswererPortraitURL-64}" role="presentation" alt="{Answerer}" />
                                         <span class="user">{lang:Answered}:</span>
                                     </cite>
-    
+
                                     {Answer}
                                 </blockquote>
                             {/block:Answerer}
                         {/block:Answer}
-    
+
                         {block:Reblogs}
                             <div class="trail-item">
                                 <a class="trail-blog" {block:HasPermalink}href="{Permalink}"{/block:HasPermalink} {Target}>
                                     {block:HasAvatar}
                                         <img class="avatar" src="{PortraitURL-64}" alt="{Username}" role="presentation" />
                                     {/block:HasAvatar}
-        
+
                                     <b class="username">{Username}</b>
                                 </a>
-    
+
                                 <div class="trail-content">
                                     {Body}
                                 </div>
                             </div>
                         {/block:Reblogs}
-    
+
                         {block:NotReblog}
                             <div class="post-content">
                                 {block:Text}
                                     {Body}
                                 {/block:Text}
-    
+
                                 {block:Photo}
                                     {block:Caption}
                                         {Caption}
                                     {/block:Caption}
                                 {/block:Photo}
-    
+
                                 {block:Panorama}
                                     {block:Caption}
                                         {Caption}
                                     {/block:Caption}
                                 {/block:Panorama}
-    
+
                                 {block:Photoset}
                                     {block:Caption}
                                         {Caption}
                                     {/block:Caption}
                                 {/block:Photoset}
-    
+
                                 {block:Link}
                                     {block:Description}
                                         {Description}
                                     {block:Description}
                                 {/block:Link}
-    
+
                                 {block:Audio}
                                     {block:Caption}
                                         {Caption}
                                     {/block:Caption}
                                 {/block:Audio}
-    
+
                                 {block:Video}
                                     {block:Caption}
                                         {Caption}
@@ -357,7 +358,7 @@
                             </div>
                         {/block:NotReblog}
                     </div>
-    
+
                     {block:Date}
                         <footer class="post-info">
                             <ul>
@@ -366,13 +367,13 @@
                                         {PinnedPostLabel}
                                     </li>
                                 {/block:PinnedPostLabel}
-                                
+
                                 <li>
                                     <a class="author" href="{PostAuthorURL}" {Target} rel="author" aria-label="{lang:Posted by PostAuthorName}">
                                         {PostAuthorTitle}
                                     </a>
                                 </li>
-    
+
                                 <li>
                                     <a class="permalink" href="{Permalink}" rel="bookmark">
                                         <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">
@@ -380,14 +381,14 @@
                                         </time>
                                     </a>
                                 </li>
-                                
+
                                 {block:RebloggedFrom}
                                     <li>
                                         {lang:Reblogged from ReblogParentTitle 2}
                                     </li>
                                 {/block:RebloggedFrom}
-    
-    
+
+
                                 {block:ContentSource}
                                     <li>
                                         {lang:Source}:
@@ -396,13 +397,13 @@
                                         </a>
                                     </li>
                                 {/block:ContentSource}
-        
+
                                 {block:Actions}
                                     <li>
                                         <a class="post-action" href="{URL}" {Target}>{Text}</a>
                                     </li>
                                 {/block:Actions}
-        
+
                                 {block:NoteCount}
                                     <li>
                                         <a class="notes-count" href="{Permalink}#notes">
@@ -410,7 +411,7 @@
                                         </a>
                                     </li>
                                 {/block:NoteCount}
-    
+
                                 {block:IndexPage}
                                     {block:IfDisqusShortname}
                                         <li>
@@ -420,11 +421,11 @@
                                         </li>
                                     {/block:IfDisqusShortname}
                                 {/block:IndexPage}
-    
+
                                 {block:HasTags}
                                     <li>
                                         {lang:Tagged with}
-    
+
                                         <span class="tag-list">
                                             {block:Tags}
                                                 <a class="tag" href="{TagURL}" rel="tag">
@@ -435,7 +436,7 @@
                                     </li>
                                 {/block:HasTags}
                             </ul>
-    
+
                             <div class="controls">
                                 {ReblogButton size="28"}
                                 {LikeButton size="28"}
@@ -451,11 +452,11 @@
                                 {block:NoteCount}
                                     <h3>{NoteCountWithLabel}</h3>
                                 {/block:NoteCount}
-    
+
                                 {PostNotes-64}
                             </aside>
                         {/block:PostNotes}
-    
+
                         {block:IfDisqusShortname}
                             <section class="disqus_thread">
                                 <h3>{lang:Blog comments powered by Disqus}</h3>
@@ -490,7 +491,7 @@
                             {lang:Previous post}
                         </a>
                     {/block:PreviousPost}
-    
+
                     {block:NextPost}
                         <a id="next-link" href="{NextPost}" rel="next">
                             {lang:Next post}
@@ -508,7 +509,7 @@
                     {/block:PreviousDayPage}
 
                     {block:NextDayPage}
-                    <a id="next-link" href="{NextDayPage" rel="next">
+                    <a id="next-link" href="{NextDayPage}" rel="next">
                         {lang:Next day}
                     </a>
                     {/block:NextDayPage}
@@ -546,7 +547,7 @@
                             </a>
                         </li>
                     {/block:IfYourTumblrUsername}
-                    
+
                     <li>
                         <a href="/rss">
                             {lang:Subscribe via RSS}
@@ -561,7 +562,7 @@
                 <script id="dsq-count-scr" async await src="https://{text:Disqus Shortname}.disqus.com/count.js"></script>
             {/block:IfDisqusShortname}
         {/block:IndexPage}
-        
+
         {block:IfClickyTrackingID}
             <script async data-id="{text:Clicky Tracking ID}" src="https://static.getclicky.com/js"></script>
             <img alt="Clicky" width="1" height="1" src="https://in.getclicky.com/{text:Clicky Tracking ID}ns.gif" />
