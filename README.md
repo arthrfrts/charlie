@@ -1,6 +1,6 @@
 # Charlie
 
-[Charlie](https://www.tumblr.com/themes/41291) is a theme for Tumblr blogs with a classic feel. It supports old-timey post formats and NPF posts, with styles that match what you see in your Dashboard while maintaining an unique feel in your blog.
+[Charlie](https://www.tumblr.com/theme/41291) is a theme for Tumblr blogs with a classic feel. It supports old-timey post formats and NPF posts, with styles that match what you see in your Dashboard while maintaining an unique feel in your blog.
 
 [See it live here!](https://charlie-theme.tumblr.com/)
 
