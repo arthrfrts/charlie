@@ -17,27 +17,23 @@
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-            {block:PermalinkPage}
-                {block:PostSummary}
-                    {PostSummary} ~
-                {/block:PostSummary}
-            {/block:PermalinkPage}
-
+        {block:PermalinkPage}
+            <title>{block:PostSummary}{PostSummary} ~ {/block:PostSummary}{Title}</title>
+        {/block:PermalinkPage}
+        {block:IndexPage}
+            {block:HomePage}
+                <title>{Title}</title>
+            {/block:HomePage}
             {block:SearchPage}
-                {lang:SearchResultCount results for SearchQuery}{block:NoSearchResults}{lang:No results found}{/block:NoSearchResults} ~
+                <title>{lang:SearchResultCount results for SearchQuery}{block:NoSearchResults}{lang:No results found}{/block:NoSearchResults} ~ {Title}</title>
             {/block:SearchPage}
-
             {block:TagPage}
-                {lang:Posts tagged Tag} ~
+                <title>{lang:Posts tagged Tag} ~ {Title}</title>
             {/block:TagPage}
-
             {block:DayPage}
-                {lang:Viewing everything posted on Month DayOfMonth Year} ~
+                <title>{lang:Viewing everything posted on Month DayOfMonth Year} ~ {Title}</title>
             {/block:DayPage}
-
-            {Title}
-        </title>
+        {/block:IndexPage}
 
         <meta name="description" content="{MetaDescription}" />
         <meta name="theme-color" content="{AccentColor}" />
