@@ -91,11 +91,13 @@ a:hover,
 a:focus {
   text-decoration: underline;
   text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
 }
 
 a:visited {
   text-decoration: underline;
   text-decoration-style: double;
+  text-decoration-thickness: 1px;
 }
 
 /*
