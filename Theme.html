@@ -13,7 +13,7 @@
             <meta name="if:Enable Full Width Media" content="0" />
             <meta name="text:Disqus Shortname" content="" />
             <meta name="text:Your Tumblr Username" content="staff" />
-            <meta name="text:Clicky Tracking ID" content="" />
+            <meta name="text:HEAD Scripts" content="" />
             <meta name="color:1st Post Detail Decoration" content="#00ff00" />
             <meta name="color:2nd Post Detail Decoration" content="#ff00ff" />
             <meta name="color:3rd Post Detail Decoration" content="#00ffff" />
@@ -99,6 +99,11 @@
             <meta property="og:url" content="{Permalink}" />
         {/block:PermalinkPage}
         <meta property="og:type" content="{block:PermalinkPage}article{/block:PermalinkPage}{block:IndexPage}website{/block:IndexPage}" />
+        <meta property="og:image" content="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{PortraitURL-128}{/block:IndexPage}" />
+
+        {block:IfHEADScripts}
+            {text:HEAD Scripts}
+        {/block:IfHEADScripts}
     </head>
     <body id="blog">
         <header id="banner">
@@ -279,25 +284,18 @@
                         {/block:Video}
 
                         {block:Answer}
-                            <blockquote class="ask-item">
-                                <cite>
-                                    <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="{Asker}" />
-                                    <span class="user">{lang:Asker asked 2}:</span>
-                                </cite>
-
-                                {Question}
-                            </blockquote>
-
-                            {block:Answerer}
+                            <div class="post-content">
                                 <blockquote class="ask-item">
                                     <cite>
-                                        <img class="avatar" src="{AnswererPortraitURL-64}" role="presentation" alt="{Answerer}" />
-                                        <span class="user">{lang:Answered}:</span>
+                                        <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="" />
+                                        <span class="user">{lang:Asker asked 2}:</span>
                                     </cite>
 
-                                    {Answer}
+                                    {Question}
                                 </blockquote>
-                            {/block:Answerer}
+
+                                {Answer}
+                            </div>
                         {/block:Answer}
 
                         {block:Reblogs}
@@ -564,10 +562,5 @@
                 <script id="dsq-count-scr" async await src="https://{text:Disqus Shortname}.disqus.com/count.js"></script>
             {/block:IfDisqusShortname}
         {/block:IndexPage}
-
-        {block:IfClickyTrackingID}
-            <script async data-id="{text:Clicky Tracking ID}" src="https://static.getclicky.com/js"></script>
-            <img alt="Clicky" width="1" height="1" src="https://in.getclicky.com/{text:Clicky Tracking ID}ns.gif" />
-        {/block:IfClickyTrackingID}
     </body>
 </html>
