@@ -268,6 +268,33 @@ body {
   border-radius: 3px;
 }
 
+/* Ask */
+
+.ask-item {
+  background-color: rgba(var(--title-color), 0.04);
+  border: 2px dashed rgba(var(--title-color), 0.25);
+  border-left: none;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.ask-item cite {
+  align-items: center;
+  display: flex;
+  font-style: normal;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ask-item .avatar {
+  border-radius: 3px;
+  flex-shrink: 0;
+  height: 2rem;
+  width: 2rem;
+}
+
 /* Notes */
 .notes {
   margin-bottom: 1rem;
