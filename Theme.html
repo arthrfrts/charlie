@@ -19,6 +19,14 @@
             <meta name="color:3rd Post Detail Decoration" content="#00ffff" />
             <meta name="color:4th Post Detail Decoration" content="#ffff00" />
             <meta name="color:5th Post Detail Decoration" content="#ff0000" />
+            <meta name="text:Webmention Endpoint" content="" />
+            <meta name="text:Authorization Endpoint" content="" />
+            <meta name="text:Token Endpoint" content="" />
+            <meta name="text:Identity Link 1" content="" />
+            <meta name="text:Identity Link 2" content="" />
+            <meta name="text:Identity Link 3" content="" />
+            <meta name="text:Identity Link 4" content="" />
+            <meta name="text:Identity Link 5" content="" />
         {/block:Options}
 
         <meta charset="UTF-8" />
@@ -70,6 +78,32 @@
         <link rel="stylesheet" href="https://static.tumblr.com/i99f53r/VZVrzrrgp/base.css" />
         <link rel="stylesheet" href="https://static.tumblr.com/i99f53r/iqsrzrrga/layout.css" />
 
+        {block:IfWebmentionEndpoint}
+            <link rel="webmention" href="{text:Webmention Endpoint}" />
+            <link rel="pingback" href="{text:Webmention Endpoint}" />
+        {/block:IfWebmentionEndpoint}
+        {block:IfAuthorizationEndpoint}
+            <link rel="authorization_endpoint" href="{text:Authorization Endpoint}" />
+        {/block:IfAuthorizationEndpoint}
+        {block:IfTokenEndpoint}
+            <link rel="token_endpoint" href="{text:Token Endpoint}" />
+        {/block:IfTokenEndpoint}
+        {block:IfIdentityLink1}
+            <link rel="me" href="{text:Identity Link 1}" />
+        {/block:IfIdentityLink1}
+        {block:IfIdentityLink2}
+            <link rel="me" href="{text:Identity Link 2}" />
+        {/block:IfIdentityLink2}
+        {block:IfIdentityLink3}
+            <link rel="me" href="{text:Identity Link 3}" />
+        {/block:IfIdentityLink3}
+        {block:IfIdentityLink4}
+            <link rel="me" href="{text:Identity Link 4}" />
+        {/block:IfIdentityLink4}
+        {block:IfIdentityLink5}
+            <link rel="me" href="{text:Identity Link 5}" />
+        {/block:IfIdentityLink5}
+
         {block:IfEnableFullWidthMedia}
             <style id="full-width-media">
                 .post-content > figure,
@@ -106,19 +140,19 @@
         {/block:IfHEADScripts}
     </head>
     <body id="blog">
-        <header id="banner">
-            <a class="blog-card" href="{BlogURL}" {Target}>
+        <header id="banner" class="h-card">
+            <a class="blog-card u-url" href="{BlogURL}" {Target}>
                 {block:ShowAvatar}
-                    <img class="avatar {AvatarShape}" width="64" height="64" src="{PortraitURL-128}" alt="{Title}" />
+                    <img class="avatar {AvatarShape} u-photo" width="64" height="64" src="{PortraitURL-128}" alt="{Title}" />
                 {/block:ShowAvatar}
 
                 {block:ShowTitle}
-                    <h1 class="title">{Title}</h1>
+                    <h1 class="title p-name">{Title}</h1>
                 {/block:ShowTitle}
             </a>
 
             {block:ShowDescription}
-                <p class="description">{Description}</p>
+                <p class="description p-note">{Description}</p>
             {/block:ShowDescription}
         </header>
 
@@ -165,7 +199,8 @@
             {/block:Likes}
         </nav>
 
-        <main id="content" {block:IndexPage}role="feed"{/block:IndexPage}>
+        <main id="content" {block:IndexPage}class="h-feed" role="feed"{/block:IndexPage}>
+            {block:IndexPage}{block:HomePage}<data class="p-name" value="{Title}"></data>{/block:HomePage}{/block:IndexPage}
             {block:SearchPage}
                 {block:NoSearchResults}
                     <h3>{lang:No results found}</h3>
@@ -185,8 +220,9 @@
             {/block:NoPosts}
 
             {block:Posts inlineMediaWidth="1020" inlineNestedMediaWidth="1020"}
-                <article id="{PostID}" class="{PostType} post">
+                <article id="{PostID}" class="{PostType} post h-entry">
                     <div class="post-body">
+                        <data class="p-name" value="{PostSummary}"></data>
                         {block:Text}
                             {block:Title}
                                 <h1>
@@ -229,7 +265,7 @@
 
                         {block:Link}
                             <figure class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
-                                <a href="{URL}" {Target}>
+                                <a href="{URL}" class="u-in-reply-to" {Target}>
                                     {block:Thumbnail}
                                         <div class="poster" style="background-image: url('{Thumbnail-HighRes}');">
                                     {/block:Thumbnail}
@@ -288,13 +324,16 @@
                                 <blockquote class="ask-item">
                                     <cite>
                                         <img class="avatar" src="{AskerPortraitURL-64}" role="presentation" alt="" />
+                                        {block:Answerer}<a class="u-in-reply-to" href="{AskerURL}" hidden></a>{/block:Answerer}
                                         <span class="user">{lang:Asker asked 2}:</span>
                                     </cite>
 
                                     {Question}
                                 </blockquote>
 
-                                {Answer}
+                                <div class="e-content">
+                                    {Answer}
+                                </div>
                             </div>
                         {/block:Answer}
 
@@ -315,7 +354,7 @@
                         {/block:Reblogs}
 
                         {block:NotReblog}
-                            <div class="post-content">
+                            <div class="post-content e-content">
                                 {block:Text}
                                     {Body}
                                 {/block:Text}
@@ -341,7 +380,7 @@
                                 {block:Link}
                                     {block:Description}
                                         {Description}
-                                    {block:Description}
+                                    {/block:Description}
                                 {/block:Link}
 
                                 {block:Audio}
@@ -369,14 +408,14 @@
                                 {/block:PinnedPostLabel}
 
                                 <li>
-                                    <a class="author" href="{PostAuthorURL}" {Target} rel="author" aria-label="{lang:Posted by PostAuthorName}">
-                                        {PostAuthorTitle}
+                                    <a class="author p-author h-card" href="{PostAuthorURL}" {Target} rel="author" aria-label="{lang:Posted by PostAuthorName}">
+                                        <span class="p-name">{PostAuthorTitle}</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a class="permalink" href="{Permalink}" rel="bookmark">
-                                        <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">
+                                    <a class="permalink u-url" href="{Permalink}" rel="bookmark">
+                                        <time class="dt-published" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}">
                                             {TimeAgo}
                                         </time>
                                     </a>
@@ -385,6 +424,7 @@
                                 {block:RebloggedFrom}
                                     <li>
                                         {lang:Reblogged from ReblogParentTitle 2}
+                                        <a class="u-repost-of" href="{ReblogRootURL}" hidden></a>
                                     </li>
                                 {/block:RebloggedFrom}
 
@@ -428,7 +468,7 @@
 
                                         <span class="tag-list">
                                             {block:Tags}
-                                                <a class="tag" href="{TagURL}" rel="tag">
+                                                <a class="tag p-category" href="{TagURL}" rel="tag">
                                                     {Tag}
                                                 </a>
                                             {/block:Tags}
